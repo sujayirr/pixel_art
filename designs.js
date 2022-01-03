@@ -1,7 +1,7 @@
 // Set the color of the target with the color selected in the input color tag.
 function setCellColor(evt) {
-    var inputColor = document.getElementById("colorPicker").value;
-    var cell = document.getElementById(evt.target.id);
+    const inputColor = document.getElementById("colorPicker").value;
+    const cell = document.getElementById(evt.target.id);
     cell.style.backgroundColor = inputColor;
 }
 
@@ -9,19 +9,19 @@ function setCellColor(evt) {
 function makeGrid(rows, cells) {
     // Your code goes here!
 
-    var table = document.createElement('table');
+    const table = document.createElement('table');
 
     // counter increased and used as table data id.
-    var count = 0;
+    let count = 0;
 
     // Loop for creating table rows
-    for (var i = 0; i < rows; i++) {
+    for (let i = 0; i < rows; i++) {
 
-        var row = table.insertRow(-1);
+        const row = table.insertRow(-1);
         // Loop for creating row cells
-        for (var j = 0; j < cells; j++) {
+        for (let j = 0; j < cells; j++) {
             count++;
-            var cell = row.insertCell(-1);
+            const cell = row.insertCell(-1);
             cell.setAttribute('id', count);
             row.appendChild(cell);
         }
@@ -29,13 +29,13 @@ function makeGrid(rows, cells) {
     }
 
     // Get the table object on the html document.
-    var pixelCanvas = document.getElementById("pixelCanvas");
+    const pixelCanvas = document.getElementById("pixelCanvas");
 
     // Assign the html content from JavaScript table to the html tag on the document.
     pixelCanvas.innerHTML = table.innerHTML;
 
     // Get all cells in the table with pixelCanvas id
-    var tableCells = document.querySelectorAll('#pixelCanvas td');
+    const tableCells = document.querySelectorAll('#pixelCanvas td');
 
     // Add the set color event listener function to each cell's on click event.
     tableCells.forEach(tableCell => tableCell.addEventListener("click", setCellColor));
